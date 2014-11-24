@@ -75,6 +75,10 @@ public enum CarabiEventType {
 	usersRelationsAdd(17),
 	usersRelationsRemove(18),
 	usersAvatarChange(19),
+	phoneCallIncome(20),
+	phoneSpeachStarted(21),
+	phoneBreackout(22),
+	toggleOnlineDisplay(23),
 	error(Short.MAX_VALUE);
 
 	private short code;
