@@ -1,19 +1,16 @@
 package ru.carabi.libs;
 
-import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import javax.json.JsonObjectBuilder;
 import javax.xml.bind.DatatypeConverter;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.MessageContext;
@@ -24,6 +21,9 @@ import javax.xml.ws.handler.MessageContext;
  */
 public class CarabiFunc {
 	private static final String configkey = "Carab!", salt = "EventerKOD", pepper = "#Test~";
+	//время в секундах, после которого считаем, что пользователь отключился
+	//(а не связь порвалась, например). С этим же интервалом обновляем список онлайн-пользователей.
+	public static final int onlineControlTimeout = 60; 
 	public static final Charset defaultCharset = Charset.forName("UTF-8");
 	public static String getRandomString(int length) {
 		byte[] bytes = new byte[length];
