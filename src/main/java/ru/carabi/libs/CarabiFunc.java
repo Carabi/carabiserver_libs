@@ -86,4 +86,89 @@ public class CarabiFunc {
 			bindingProvider.getRequestContext().put(MessageContext.HTTP_REQUEST_HEADERS, map);
 		}
 	}
+	
+	private static final Map<Character, String> translit = new HashMap<>();
+	
+	static {
+		translit.put('А', "A");
+		translit.put('Б', "B");
+		translit.put('В', "V");
+		translit.put('Г', "G");
+		translit.put('Д', "D");
+		translit.put('Е', "JE");
+		translit.put('Ё', "JO");
+		translit.put('Ж', "J");
+		translit.put('З', "Z");
+		translit.put('И', "I");
+		translit.put('Й', "IJ");
+		translit.put('К', "K");
+		translit.put('Л', "L");
+		translit.put('М', "M");
+		translit.put('Н', "N");
+		translit.put('О', "O");
+		translit.put('П', "P");
+		translit.put('Р', "R");
+		translit.put('С', "S");
+		translit.put('Т', "T");
+		translit.put('У', "U");
+		translit.put('Ф', "F");
+		translit.put('Х', "H");
+		translit.put('Ц', "TC");
+		translit.put('Ч', "CH");
+		translit.put('Ш', "SH");
+		translit.put('Щ', "SCH");
+		translit.put('Ъ', "`");
+		translit.put('Ы', "Y");
+		translit.put('Ь', "`");
+		translit.put('Э', "E");
+		translit.put('Ю', "JU");
+		translit.put('Я', "JA");
+
+		translit.put('а', "a");
+		translit.put('б', "b");
+		translit.put('в', "v");
+		translit.put('г', "g");
+		translit.put('д', "d");
+		translit.put('е', "je");
+		translit.put('ё', "jo");
+		translit.put('ж', "j");
+		translit.put('з', "z");
+		translit.put('и', "i");
+		translit.put('й', "ij");
+		translit.put('к', "k");
+		translit.put('л', "l");
+		translit.put('м', "m");
+		translit.put('н', "n");
+		translit.put('о', "o");
+		translit.put('п', "p");
+		translit.put('р', "r");
+		translit.put('с', "s");
+		translit.put('т', "t");
+		translit.put('у', "u");
+		translit.put('ф', "f");
+		translit.put('х', "h");
+		translit.put('ц', "tc");
+		translit.put('ч', "ch");
+		translit.put('ш', "sh");
+		translit.put('щ', "sch");
+		translit.put('ъ', "`");
+		translit.put('ы', "y");
+		translit.put('ь', "`");
+		translit.put('э', "e");
+		translit.put('ю', "ju");
+		translit.put('я', "ja");
+	}
+	
+	public static String cyrillicToAscii(String cyrillicStr) {
+		
+		StringBuilder result = new StringBuilder();
+		for (char litera: cyrillicStr.toCharArray()) {
+			if (translit.containsKey(litera)) {
+				result.append(translit.get(litera));
+			} else {
+				result.append(litera);
+			}
+		}
+		return result.toString();
+	}
 }
